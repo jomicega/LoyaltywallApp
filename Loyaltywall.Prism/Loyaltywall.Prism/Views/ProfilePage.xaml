@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" 
+             xmlns:views="clr-namespace:Loyaltywall.Prism.Views" 
+             xmlns:viewmodels="clr-namespace:Loyaltywall.Prism.ViewModels"
+             x:DataType="viewmodels:ProfilePageViewModel"
+             x:Class="Loyaltywall.Prism.Views.ProfilePage"
+             BackgroundColor="WhiteSmoke"
+             Title="Perfil">
+    <StackLayout >
+        <Frame CornerRadius="0"
+               BackgroundColor="#7E2EFF"
+               HeightRequest="230">
+            <Frame.Background>
+                <!-- StartPoint defaults to (0,0) -->
+                <LinearGradientBrush EndPoint="0,0.5">
+                    <GradientStop Color="#7E2EFF"
+                       Offset="0.1" />
+                    <GradientStop Color="#0045FF"
+                       Offset="1.0" />
+                </LinearGradientBrush>
+            </Frame.Background>
+            <StackLayout VerticalOptions="StartAndExpand">
+                <Label Text="Mi perfil"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center">
+                </Label>
+                <controls:CircleImage 
+                    BorderColor="White"
+                    BorderThickness="1"
+                    HeightRequest="125"
+                    WidthRequest="125"
+                    Aspect="AspectFill"
+                    HorizontalOptions="CenterAndExpand"
+                    Source= "avatar.pgn">
+                </controls:CircleImage>
+            </StackLayout>
+        </Frame>
+        <StackLayout TranslationY="-70">
+            <Frame CornerRadius="20"
+                   BackgroundColor="White"
+                   BorderColor="White"
+                   HeightRequest="130"
+                   Margin="20,5">
+                <StackLayout Margin="10,3">
+                    <StackLayout Orientation="Horizontal" Margin="5,0">
+                        <Image Source="Profile"
+                            WidthRequest="35"
+                           HeightRequest="35">
+                        </Image>
+                        <Label Text="{Binding Name}"
+                           TextColor="#606A84"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           FontSize="15">
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Margin="5,0">
+                        <Image Source="Email"
+                            WidthRequest="35"
+                           HeightRequest="35">
+                        </Image>
+                        <Label Text="{Binding Email}"
+                           TextColor="#606A84"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           FontSize="15">
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Margin="5,0">
+                        <Image Source="Phone"
+                            WidthRequest="35"
+                           HeightRequest="35">
+                        </Image>
+                        <Label Text="+57 3125698745"
+                           TextColor="#606A84"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           FontSize="15">
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="20"
+               BackgroundColor="White"
+               BorderColor="White"
+               HeightRequest="150"
+               Margin="20,5">
+                <StackLayout Margin="10,3">
+                    <StackLayout Orientation="Horizontal" Margin="5,0">
+                        <Image Source="Details"
+                            WidthRequest="35"
+                           HeightRequest="35">
+                        </Image>
+                        <Label Text="Detalle de tu plan"
+                           TextColor="#606A84"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           FontSize="15">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PlanDetailCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding PlanDetailCommand}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Frame CornerRadius="20"
+               BackgroundColor="White"
+               BorderColor="White"
+               HeightRequest="50"
+               Margin="20,20,20,5">
+                <StackLayout Margin="10,3">
+                    <StackLayout Orientation="Horizontal" Margin="5,0" HorizontalOptions="Center">
+                        <ImageButton Source="LogOut"
+                            WidthRequest="30"
+                           HeightRequest="30"
+                           BackgroundColor="White"
+                                     Command="{Binding LogoutCommand}">
+                        </ImageButton>
+                        <Label Text="Cerrar sesión"
+                           TextColor="#FF2E59"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           FontSize="15">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LogoutCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LogoutCommand}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

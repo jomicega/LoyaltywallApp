@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="http://prismlibrary.com"
+            xmlns:local="clr-namespace:Loyaltywall.Prism.Views"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="Loyaltywall.Prism.Views.MainTabbedPage"
+            BarBackgroundColor="White"
+            UnselectedTabColor="Black"
+            SelectedTabColor="#7E2EFF"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            CurrentPageChanged="OnCurrentPageChanged">
+    
+    <TabbedPage.Children CurrentPageChanged="OnCurrentPageChanged">
+
+        <local:HomePage IconImageSource="Home.png"/>
+        <local:PointsPage IconImageSource="Points.png"/>
+        <local:ProfilePage IconImageSource="Profile.png"/>
+    </TabbedPage.Children>
+</TabbedPage>

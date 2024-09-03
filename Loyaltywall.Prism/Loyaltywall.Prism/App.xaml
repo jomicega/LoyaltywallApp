@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:local="clr-namespace:Loyaltywall.Prism.Helpers"
+             x:Class="Loyaltywall.Prism.App">
+  <Application.Resources>
+
+        <!-- Parameters -->
+        <x:String x:Key="UrlAPI">https://apiadmin.loyaltywall.com</x:String>
+
+        <!-- Declarar el convertidor -->
+        <local:IsNegativeConverter x:Key="IsNegativeConverter" />
+
+    </Application.Resources>
+</prism:PrismApplication>

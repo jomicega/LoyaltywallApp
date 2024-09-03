@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Loyaltywall.Prism.Views.PlandetailPage"
+             BackgroundColor="WhiteSmoke">
+    <NavigationPage.TitleView>
+        <Label Text="Detalle de tu plan" 
+               HorizontalOptions="StartAndExpand"
+               VerticalOptions="Center"
+               FontAttributes="Bold"
+               TextColor="White"
+               FontSize="20">
+        </Label>
+    </NavigationPage.TitleView>
+    
+        <StackLayout >
+            <Frame CornerRadius="0"
+           BackgroundColor="#7E2EFF"
+           HeightRequest="230">
+            <Frame.Background>
+                <!-- StartPoint defaults to (0,0) -->
+                <LinearGradientBrush EndPoint="0,0.5">
+                    <GradientStop Color="#7E2EFF"
+                       Offset="0.1" />
+                    <GradientStop Color="#0045FF"
+                       Offset="1.0" />
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
+            <StackLayout TranslationY="-100">
+                <Frame CornerRadius="20"
+               BackgroundColor="White"
+               BorderColor="White"
+               HeightRequest="650"
+               Margin="20,5">
+                    <StackLayout Margin="10,3">
+                        <Label Text="Detalle de tu plan"
+                       TextColor="#606A84"
+                       FontAttributes="Bold"
+                       FontSize="20">
+                        </Label>
+
+                        <Label Text="Tu plan"
+                       TextColor="#606A84"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Margin="0,20,0,0">
+                        </Label>
+                      <Label Text="{Binding Name}"
+                       TextColor="#606A84"
+                       FontSize="14">
+                        </Label>
+
+                        <Label Text="$00.000"
+                       TextColor="#606A84"
+                       FontSize="18"
+                       Margin="0,15,0,0">
+                        </Label>
+                        <Label Text="Cargo fijo mensual/renovado - vigencia plan Fecha de corte/pago (DD/MM/AA)"
+                       TextColor="#606A84"
+                       FontSize="14">
+                        </Label>
+
+                        <Label Text="Descripción del plan"
+                       TextColor="#606A84"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       Margin="0,20,0,0">
+                        </Label>
+                        <Label Text="{Binding Description}"
+                       TextColor="Black"
+                       FontSize="13">
+                        </Label>
+
+                    <BoxView Color="#606A84"
+                         HeightRequest="1"
+                         WidthRequest="10000"
+                         Margin="0,10">
+
+                        </BoxView>
+                    <CollectionView ItemsSource="{Binding ListPlan}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame HasShadow="True" BorderColor="LightGray" CornerRadius="15" Padding="10">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="0"
+                                             VerticalOptions="Center">
+                                            <Label Text="{Binding name}" 
+                                                   TextColor="#606A84"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Medium"/>
+                                            <Label Text="{Binding description}"
+                                                   TextColor="#606A84"                                                   
+                                                   FontAttributes="Italic" 
+                                                   VerticalOptions="End"/>
+                                        </StackLayout>
+
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>      
+                </StackLayout>
+                </Frame>
+            </StackLayout>
+
+        </StackLayout>
+    
+    
+</ContentPage>

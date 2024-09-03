@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"                
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:magic="http://magic.com/schemas/gradients"
+            x:Class="Loyaltywall.Prism.Views.HomePage"
+             BackgroundColor="WhiteSmoke"
+             Title="Inicio">
+   
+        <StackLayout>
+            <Frame CornerRadius="0"
+               BackgroundColor="#7E2EFF"
+               BorderColor="#7E2EFF">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="LogoBlanco.pgn"
+                        WidthRequest="150"
+                        HeightRequest="20">  
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PerfilCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <controls:CircleImage 
+                        BorderColor="White"
+                        BorderThickness="1"
+                        HeightRequest="70"
+                        WidthRequest="70"
+                        Aspect="AspectFill"
+                        HorizontalOptions="EndAndExpand"
+                        Source="avatar.pgn">        
+                    <controls:CircleImage.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PerfilCommand}"/>
+                    </controls:CircleImage.GestureRecognizers>
+                </controls:CircleImage>
+            </StackLayout>
+        </Frame>
+            <Frame  CornerRadius="20"
+                    BackgroundColor="#7E2EFF"
+                    HeightRequest="120"
+                    Margin="10,0">
+            <Frame.Background>
+                <!-- StartPoint defaults to (0,0) -->
+                <LinearGradientBrush EndPoint="0,0.5">
+                    <GradientStop Color="#7E2EFF"
+                       Offset="0.1" />
+                    <GradientStop Color="#0045FF"
+                       Offset="1.0" />
+                </LinearGradientBrush>
+            </Frame.Background>
+            <StackLayout>
+                    <Label Text="Mis puntos"
+                   FontSize="15"
+                   FontAttributes="Bold"
+                   TextColor="White">
+                    </Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="puntos.png"
+                       HeightRequest="100"
+                       WidthRequest="100"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                        </Image>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label Text="{Binding Current_points, StringFormat='{0} Puntos'}"
+                           TextColor="White"
+                           HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           FontSize="25">
+                            </Label>
+                            <Label Text="Estos son tua puntos actuales"
+                           TextColor="White">
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+            </Frame>
+            <Frame CornerRadius="20"
+               BackgroundColor="White"
+               BorderColor="White"
+               HeightRequest="160"
+               Margin="10,0"
+               Padding="5">
+            <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="Puntos por vencer"
+                       TextColor="#FF2E59"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="15">
+                        </Label>
+                        <Frame Margin="10"
+                       CornerRadius="50"
+                       HeightRequest="40"
+                       WidthRequest="100"
+                       Padding="5"
+                       BackgroundColor="#F8D2D2"
+                       BorderColor="#F8D2D2">
+                            <Label Text="{Binding Expired_points}"
+                           FontSize="20"
+                           TextColor="#FF2E59"
+                                   Opacity="0.8"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Margin="0">
+                            </Label>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="Fecha"
+                       TextColor="#606A84"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center">
+                        </Label>
+                    <Label Text="{Binding Expiration_point_date, StringFormat='{0:dd/MM/yyyy}'}"
+                           Margin="0,15,0,0"
+                           TextColor="#606A84"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center">    
+                    </Label>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>            
+        <Frame CornerRadius="20"
+                   BackgroundColor="White"
+                   BorderColor="White"
+                   HeightRequest="60"
+                   Margin="10,0"
+                   Padding="15">
+            <Frame.Background>
+                    <!-- StartPoint defaults to (0,0) -->
+                    <LinearGradientBrush EndPoint="0,0.5">
+                        <GradientStop Color="#FF2E59"
+                      Offset="0.1" />
+                        <GradientStop Color="#7E2EFF"
+                      Offset="0.1" />
+                        <GradientStop Color="#0045FF"
+                      Offset="1.0" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="Remide tus puntos"
+                       TextColor="White"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       FontAttributes="Bold"
+                       FontSize="20">
+                        </Label>
+                        <Label Text="Conoce los beneficios de tus puntos"
+                       TextColor="White"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       FontAttributes="Bold"
+                       FontSize="12">
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="End">
+                        <Frame Margin="10,10,5,0"
+                       CornerRadius="50"
+                       HeightRequest="40"
+                       WidthRequest="100"
+                       Padding="5"
+                       HorizontalOptions="End"                           
+                       BackgroundColor="Transparent"
+                       BorderColor="White">
+                            <Label Text="Aqui!"
+                           FontSize="20"
+                           TextColor="White"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="Center"
+                           Margin="0">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding RedeemPointsCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </Frame> 
+            
+            <Label Text="Ultimas transacciones"
+                   TextColor="#606A84"
+                   FontSize="17"
+                   Margin="10,0"
+                   FontAttributes="Bold"
+                   Padding="10,0">
+             </Label>
+            <CollectionView ItemsSource="{Binding Purchased}" Margin="10,0">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="8"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame HasShadow="True" BorderColor="LightGray" CornerRadius="15" Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0"
+                                  VerticalOptions="Center">
+                                <Label Text="{Binding name}" 
+                                TextColor="#1F2126"
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                LineBreakMode="TailTruncation" />
+                                <Label Text="{Binding registration_date, StringFormat='{0:dd/MM/yyyy}'}"
+                                TextColor="#606A84"
+                                LineBreakMode="TailTruncation"
+                                FontAttributes="Italic" 
+                                VerticalOptions="End"/>
+                            </StackLayout>
+                            <Button
+                              Grid.Column="1"
+                              BorderColor="{Binding BackgroundColorFrame}"
+                              Text="{Binding points,StringFormat='{0} Pts'}"
+                              TextColor="White"
+                              BorderWidth="2"
+                              HeightRequest="40"
+                              WidthRequest="100"
+                              CornerRadius="50"
+                              Margin="10"
+                              VerticalOptions="CenterAndExpand"
+                              HorizontalOptions="CenterAndExpand">
+                                <Button.Triggers>
+                                    <DataTrigger TargetType="Button" Binding="{Binding points, Converter={StaticResource IsNegativeConverter}}" Value="True">
+                                        <Setter Property="BackgroundColor" Value="#FF2E59"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Button" Binding="{Binding points,Converter={StaticResource IsNegativeConverter}}" Value="False">
+                                        <Setter Property="BackgroundColor" Value="#0045FF" />
+                                    </DataTrigger>
+                                </Button.Triggers>
+                            </Button>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>     
+ </ContentPage>

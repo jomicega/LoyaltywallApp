@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"             
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Loyaltywall.Prism.Views.PointsPage"
+              BackgroundColor="WhiteSmoke"
+             Title="Mis puntos">
+    <StackLayout>
+        <Frame CornerRadius="0"
+               BackgroundColor="#0045FF"
+               BorderColor="#0045FF">
+            <Label Text="Mis puntos"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="20">                
+            </Label>
+        </Frame>
+        <Frame BackgroundColor="#A47CE5"  
+               TranslationY="-7"
+               Padding="5">
+            <Frame CornerRadius="20"
+                   BackgroundColor="#0045FF"                   
+                   Padding="8"
+                   Margin="10,10,10,20"
+                   HeightRequest="140">
+                <Frame.Background>
+                    <!-- StartPoint defaults to (0,0) -->
+                    <LinearGradientBrush EndPoint="0,0.5">                       
+                        <GradientStop Color="#7E2EFF"
+                                      Offset="0.1" />
+                        <GradientStop Color="#0045FF"
+                                      Offset="1.0" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout>                    
+                    <StackLayout Orientation="Horizontal">
+                        <controls:CircleImage 
+                            BorderColor="White"
+                            BorderThickness="1"
+                            HeightRequest="120"
+                            WidthRequest="120"
+                            Aspect="AspectFill"
+                            HorizontalOptions="Start"
+                            Source="avatar.pgn" >
+                            <controls:CircleImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PerfilCommand}"/>
+                            </controls:CircleImage.GestureRecognizers>
+                        </controls:CircleImage>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0">
+                            <Label Text="{Binding Name}"
+                               TextColor="White"
+                               HorizontalOptions="Start"
+                               FontAttributes="Bold"
+                               FontSize="20">
+                            </Label>
+                            <Label Text="Puntos actuales"
+                               TextColor="WhiteSmoke"
+                               HorizontalOptions="Start"
+                               FontSize="15">
+                            </Label>
+                            <Label Text="{Binding Current_points, StringFormat='{0} Puntos'}"
+                                   TextColor="White"
+                                   FontSize="25"
+                                   HorizontalOptions="Start">
+                            </Label>
+                            <Frame CornerRadius="50"                           
+                                   BackgroundColor="#FF2E59"
+                                   BorderColor="#FF2E59"
+                                   Opacity="0.8"
+                                   Padding="5">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Expired_points, StringFormat='Puntos a vencer: {0} Pts'}"
+                                       FontSize="15"
+                                       TextColor="White" FontAttributes="Bold"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="CenterAndExpand"
+                                       Margin="10,0,0,0">
+                                    </Label>
+                                    <Image Source="flecha_abajo"
+                                           HeightRequest="20"
+                                           WidthRequest="20"
+                                           HorizontalOptions="EndAndExpand"
+                                           Margin="0,0,10,0">                                      
+                                    </Image>
+                                </StackLayout>                                
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+            </Frame>
+        </Frame>
+        <Frame CornerRadius="25"
+               BackgroundColor="White"
+               BorderColor="White"
+               TranslationY="-30"
+               Margin="5,0">
+            <StackLayout>
+                <Label Text="Historial de puntos"
+                       TextColor="#606A84"
+                       FontSize="20"
+                       FontAttributes="Bold">                    
+                </Label>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+
+                    <buttons:SfChipGroup Type="Choice" ChoiceMode="SingleOrNone" ChipBackgroundColor="White" ChipTextColor="#0045FF">                        
+                        <buttons:SfChipGroup.Items>
+                            <buttons:SfChip Text="Todos"                    
+                                            BorderColor="#0045FF"
+                                            BackgroundColor="White"
+                                            BorderWidth="1"  
+                                            ShowSelectionIndicator="{Binding IsCheckedTodos}" 
+                                            SelectionIndicatorColor="#0045FF"
+                                            Command="{Binding TodosCommand}" 
+                                            TextColor="#0045FF"
+                                            WidthRequest="100"
+                                            FontSize="14"
+                                            ShadowColor="Black"
+                                            HasShadow="True"/>
+                            <buttons:SfChip Text="Acomulados"
+                                            BorderColor="#0045FF"
+                                            BackgroundColor="White"
+                                            BorderWidth="1" 
+                                            FontSize="14"
+                                            ShowSelectionIndicator="{Binding IsCheckedAcomulados}" 
+                                            SelectionIndicatorColor="#0045FF"
+                                            WidthRequest="120"
+                                            Command="{Binding AcomuladosCommand}"
+                                            TextColor="#0045FF"
+                                            ShadowColor="Black"
+                                            HasShadow="True"/>
+                            <buttons:SfChip Text="Consumidos"
+                                            BorderColor="#0045FF"
+                                            BackgroundColor="White"
+                                            FontSize="14"
+                                            ShowSelectionIndicator="{Binding IsCheckedConsumidos}" 
+                                            SelectionIndicatorColor="#0045FF"
+                                            Command="{Binding ConsumidosCommand}"
+                                            BorderWidth="1"
+                                            WidthRequest="120"
+                                            TextColor="#0045FF"
+                                            HasShadow="True"/>
+                        </buttons:SfChipGroup.Items>
+                    </buttons:SfChipGroup>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <DatePicker 
+                            Format="dd/MM/yyyy"
+                            Date="{Binding SelectedDate, Mode=TwoWay}"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="EndAndExpand"
+                            TextColor="#606A84">
+                    </DatePicker>
+                    <Image Source="Calendario"
+                           HorizontalOptions="StartAndExpand">                        
+                    </Image>                    
+                </StackLayout>
+                <BoxView Color="#606A84"
+                             HeightRequest="1"
+                             WidthRequest="10000"
+                             Margin="0,10">
+
+                </BoxView>
+                <busyindicator:SfBusyIndicator AnimationType="Gear" 
+                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                   AbsoluteLayout.LayoutFlags="All"
+                	                   BackgroundColor="White"
+                	                   HorizontalOptions="Center"
+                	                   TextColor="#0045FF"
+                                       Opacity="0.8"
+                	                   IsBusy="{Binding IsRunning}"
+                	                   Title="Cargando..."
+                	                   VerticalOptions="Center"
+                	                   ViewBoxWidth="80"
+                	                   ViewBoxHeight="80" />
+                <CollectionView ItemsSource="{Binding Purchased}" 
+                                IsVisible="{Binding IsVisibleListPurchased}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="8"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BorderColor="LightGray" CornerRadius="15" Padding="10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0"
+                                         VerticalOptions="Center">
+                                        <Label Text="{Binding event}" 
+                                           TextColor="#1F2126"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       LineBreakMode="TailTruncation" />
+                                        <Label Text="{Binding registration_date, StringFormat='{0:dd/MM/yyyy}'}"
+                                           TextColor="#606A84"
+                                       LineBreakMode="TailTruncation"
+                                       FontAttributes="Italic" 
+                                       VerticalOptions="End"/>
+                                    </StackLayout>
+                                    <Button
+                                        Grid.Column="1"
+                                        BorderColor="{Binding BackgroundColorFrame}"
+                                        Text="{Binding points,StringFormat='{0} Pts'}"
+                                        TextColor="White"
+                                        BorderWidth="2"
+                                        HeightRequest="40"
+                                        WidthRequest="100"
+                                        CornerRadius="50"
+                                        Margin="10"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand">
+                                        <Button.Triggers>
+                                            <DataTrigger TargetType="Button" Binding="{Binding points, Converter={StaticResource IsNegativeConverter}}" Value="True">
+                                                <Setter Property="BackgroundColor" Value="#FF2E59" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Button" Binding="{Binding points,Converter={StaticResource IsNegativeConverter}}" Value="False">
+                                                <Setter Property="BackgroundColor" Value="#7E2EFF"/>
+                                            </DataTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <CollectionView ItemsSource="{Binding Consumed}"
+                                IsVisible="{Binding IsVisibleListConsumed}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="8"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BorderColor="LightGray" CornerRadius="15" Padding="10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0"
+                                         VerticalOptions="Center">
+                                        <Label Text="{Binding event}" 
+                                           TextColor="#1F2126"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       LineBreakMode="TailTruncation" />
+                                        <Label Text="{Binding system_date, StringFormat='{0:dd/MM/yyyy}'}"
+                                           TextColor="#606A84"
+                                       LineBreakMode="TailTruncation"
+                                       FontAttributes="Italic" 
+                                       VerticalOptions="End"/>
+                                    </StackLayout>
+                                    <Button
+                                        Grid.Column="1"
+                                        BorderColor="{Binding BackgroundColorFrame}"
+                                        Text="{Binding points,StringFormat='{0} Pts'}"
+                                        TextColor="White"
+                                        BorderWidth="2"
+                                        HeightRequest="40"
+                                        WidthRequest="100"
+                                        CornerRadius="50"
+                                        Margin="10"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand">
+                                        <Button.Triggers>
+                                            <DataTrigger TargetType="Button" Binding="{Binding points, Converter={StaticResource IsNegativeConverter}}" Value="True">
+                                                <Setter Property="BackgroundColor" Value="#FF2E59" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Button" Binding="{Binding points,Converter={StaticResource IsNegativeConverter}}" Value="False">
+                                                <Setter Property="BackgroundColor" Value="#7E2EFF"/>
+                                                <Setter Property="Opacity" Value="0.5"/>
+                                            </DataTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <CollectionView ItemsSource="{Binding All}"
+                                IsVisible="{Binding IsVisibleListAll}" >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="8"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BorderColor="LightGray" CornerRadius="15" Padding="10"> 
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0"
+                                         VerticalOptions="Center">
+                                        <Label Text="{Binding name}" 
+                                           TextColor="#1F2126"
+                                       FontAttributes="Bold"
+                                       FontSize="Medium"
+                                       LineBreakMode="TailTruncation" />
+                                        <Label Text="{Binding registration_date, StringFormat='{0:dd/MM/yyyy}'}"
+                                           TextColor="#606A84"
+                                       LineBreakMode="TailTruncation"
+                                       FontAttributes="Italic" 
+                                       VerticalOptions="End"/>
+                                    </StackLayout>
+                                    <Button
+                                        Grid.Column="1"
+                                        BorderColor="{Binding BackgroundColorFrame}"
+                                        Text="{Binding points,StringFormat='{0} Pts'}"
+                                        TextColor="White"
+                                        BorderWidth="2"
+                                        HeightRequest="40"
+                                        WidthRequest="100"
+                                        CornerRadius="50"
+                                        Margin="10"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="CenterAndExpand">
+                                        <Button.Triggers>
+                                            <DataTrigger TargetType="Button" Binding="{Binding points, Converter={StaticResource IsNegativeConverter}}" Value="True">
+                                                <Setter Property="BackgroundColor" Value="#FF2E59" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Button" Binding="{Binding points,Converter={StaticResource IsNegativeConverter}}" Value="False">
+                                                <Setter Property="BackgroundColor" Value="#7E2EFF"/>
+                                            </DataTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                </Grid>
+                            </Frame>                            
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

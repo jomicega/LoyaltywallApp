@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"  
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:magic="http://magic.com/schemas/gradients"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Loyaltywall.Prism.Views.LoginPage"
+             Title="LoginView"
+             BackgroundColor="#7761B7">   
+    
+        <Grid>
+            <magic:GradientView VerticalOptions="FillAndExpand">
+                <magic:GradientView.GradientSource>
+                    <magic:LinearGradient Angle="320">
+                        <magic:GradientStop Color="#ff2e59" Offset="0"/>
+                        <magic:GradientStop Color="#0045ff" Offset="100"/>
+                    </magic:LinearGradient>                    
+                </magic:GradientView.GradientSource>
+            </magic:GradientView>            
+            <StackLayout Margin="30,20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Image HeightRequest="250"
+                   Margin="0,80,0,20"
+                   Source="LogoIconoBlanco"
+                   WidthRequest="250"/>           
+                
+            </StackLayout>
+        </Grid>
+    
+    
+</ContentPage>
