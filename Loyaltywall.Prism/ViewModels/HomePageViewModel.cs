@@ -152,7 +152,7 @@ namespace Loyaltywall.Prism.ViewModels
 
         private async void RedeemPointsAsync()
         {
-            string googleUrl = "https://client.loyaltywall.com/marketplace";
+            string googleUrl = App.Current.Resources["googleUrl"].ToString();
             await Browser.OpenAsync(new Uri(googleUrl), BrowserLaunchMode.SystemPreferred);
         }
 

@@ -8,6 +8,7 @@
 
         <!-- Parameters -->
         <x:String x:Key="UrlAPI">https://apiadmin.loyaltywall.com</x:String>
+        <x:String x:Key="googleUrl">https://frontend-client.loyaltywall.com/marketplace</x:String>
 
         <!-- Declarar el convertidor -->
         <local:IsNegativeConverter x:Key="IsNegativeConverter" />
