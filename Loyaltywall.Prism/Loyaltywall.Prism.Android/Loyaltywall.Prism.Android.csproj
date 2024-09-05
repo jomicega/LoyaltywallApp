@@ -128,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Loyaltywall.Prism\Loyaltywall.Prism.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
+      <Project>{39CEFF6D-F721-4CB8-98BF-CA6138DB38A9}</Project>
       <Name>Loyaltywall.Prism</Name>
     </ProjectReference>
   </ItemGroup>
